@@ -34,10 +34,40 @@ public class TropicanoAPI {
 
     // POST (create) new Tropicano
     @PostMapping
-    public ResponseEntity<Tropicano> createTropicano(@RequestBody Tropicano tropicano) {
-        Tropicano savedTropicano = tropicanoRepository.save(tropicano);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedTropicano);
+    public ResponseEntity<List<Tropicano>> createTropicanos(@RequestBody List <Tropicano> tropicanos) {
+       
+    	//ALL OR NONE
+    	
+    	for(Tropicano tropicano:tropicanos)
+			if (!tropicano.isValid())
+				return ResponseEntity.badRequest().build();
+
+		return ResponseEntity.ok(tropicanoRepository.saveAll(tropicanos));
+    	
+    	
+    	
     }
+    
+    @PostMapping
+    public ResponseEntity<Tropicano> createTropicano(@RequestBody Tropicano tropicano) {
+       
+    	if(!tropicano.isValid())
+    		return ResponseEntity.badRequest().build();
+    	
+    	return ResponseEntity.ok(tropicanoRepository.save(tropicano));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // PUT (update) Tropicano
     @PutMapping("/{id}")
