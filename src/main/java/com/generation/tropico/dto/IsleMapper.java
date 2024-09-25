@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.generation.tropico.model.dto.IsleDTO;
-import com.generation.tropico.model.entities.Building;
+
+
 import com.generation.tropico.model.entities.Isle;
 
 @Service
@@ -18,7 +18,7 @@ public class IsleMapper {
     @Autowired
     private BuildingMapper buildingMapper;
 
-    
+    /*Versione ottimizzata*/
     public IsleDTO toDTO(Isle isle) {
         IsleDTO dto = new IsleDTO();
         dto.setId(isle.getId());
