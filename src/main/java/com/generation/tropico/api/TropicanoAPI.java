@@ -1,15 +1,24 @@
 
 package com.generation.tropico.api;
 
-import com.generation.tropico.model.entities.Tropicano;
-import com.generation.tropico.model.repository.TropicanoRepository;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.generation.tropico.model.entities.Tropicano;
+import com.generation.tropico.model.repository.TropicanoRepository;
 
 @RestController
 @RequestMapping("/tropico/api/tropicanos")
@@ -33,19 +42,20 @@ public class TropicanoAPI {
     }
 
     // POST (create) new Tropicano
-    @PostMapping
+    @PostMapping("/all")
     public ResponseEntity<List<Tropicano>> createTropicanos(@RequestBody List <Tropicano> tropicanos) {
        
     	//ALL OR NONE
     	
+    	List<Tropicano> notValid = new ArrayList<>();
+   	
     	for(Tropicano tropicano:tropicanos)
 			if (!tropicano.isValid())
-				return ResponseEntity.badRequest().build();
-
+				notValid.add(tropicano);
+    	
+    	if(notValid.size()>0)
+				return ResponseEntity.badRequest().body(tropicanos);
 		return ResponseEntity.ok(tropicanoRepository.saveAll(tropicanos));
-    	
-    	
-    	
     }
     
     @PostMapping
