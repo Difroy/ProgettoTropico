@@ -24,6 +24,7 @@ public class Tropicano implements Validable {
 	Gender gender;
 	@Enumerated(EnumType.STRING)
 	Party party;
+	int satisfaction;
 
 	public int getId() {
 		return id;
@@ -80,6 +81,14 @@ public class Tropicano implements Validable {
 	public void setParty(Party party) {
 		this.party = party;
 	}
+	
+	public int getSatisfaction() {
+		return satisfaction;
+	}
+
+	public void setSatisfaction(int satisfaction) {
+		this.satisfaction = satisfaction;
+	}
 
 	@Override
 	public boolean isValid() {
@@ -119,7 +128,10 @@ public class Tropicano implements Validable {
 		if (this.education == null) {
 			errors.add("Education cannot be empty");
 		}
+		if (this.satisfaction <= 0) {
+			errors.add("Satisfaction cannot be empty or negative");
+		}
 		return errors;
-
 	}
+	
 }
