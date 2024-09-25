@@ -20,7 +20,8 @@ public class BuildingDTO {
     private Integer rent;
 
     private String buildingType; // "Industry" o "Residential"
-
+    int isleId;
+	String isleName;
     // Getters e Setters
     public Long getId() {
         return id;
@@ -127,4 +128,22 @@ public class BuildingDTO {
     public void setBuildingType(String buildingType) {
         this.buildingType = buildingType;
     }
+
+	public int getIsleId() {
+		return isleId;
+	}
+
+	public void setIsleId(int isleId) {
+		this.isleId = isleId;
+	}
+
+	public String getIsleName() {
+		return isleName;
+	}
+
+	public void setIsleName(String isleName) {
+		this.isleName = isleName;
+	}
+    
+    
 }

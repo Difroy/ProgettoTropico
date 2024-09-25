@@ -17,6 +17,9 @@ public abstract class Building {
     private double y1;
     private double y2;
     private double area;
+    
+    @ManyToOne
+    Isle isle;
 
     // Costruttore senza argomenti
     public Building() {}
@@ -94,5 +97,15 @@ public abstract class Building {
     }
     // Metodo astratto che le sottoclassi devono implementare
     public abstract String buildingType();
+
+	public Isle getIsle() {
+		return isle;
+	}
+
+	public void setIsle(Isle isle) {
+		this.isle = isle;
+	}
+    
+    
 }
 
