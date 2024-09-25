@@ -68,19 +68,6 @@ public class TropicanoAPI {
     	
     	return ResponseEntity.ok(tropicanoRepository.save(tropicano));
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     // PUT (update) Tropicano
     @PutMapping("/{id}")
     public ResponseEntity<Tropicano> updateTropicano(@PathVariable int id, @RequestBody Tropicano tropicanoDetails) {
