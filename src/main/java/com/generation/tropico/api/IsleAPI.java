@@ -1,6 +1,5 @@
 package com.generation.tropico.api;
 
-package com.generation.tropico.api;
 
 import java.util.List;
 import java.util.Optional;
