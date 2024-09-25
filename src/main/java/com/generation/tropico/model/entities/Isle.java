@@ -63,9 +63,4 @@ public class Isle implements Validable {
         return name != null && !name.isBlank();
     }
 
-    // Metodo per aggiungere un edificio all'isola
-    public void addBuilding(Building building) {
-        this.buildings.add(building);
-        building.setIsle(this); // Imposta il riferimento inverso
-    }
 }
