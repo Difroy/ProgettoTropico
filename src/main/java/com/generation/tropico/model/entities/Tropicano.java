@@ -24,6 +24,10 @@ public class Tropicano implements Validable {
 	Gender gender;
 	@Enumerated(EnumType.STRING)
 	Party party;
+	@Enumerated(EnumType.STRING)
+	private Religion religion;
+	
+	
 	int satisfaction;
 
 	public int getId() {

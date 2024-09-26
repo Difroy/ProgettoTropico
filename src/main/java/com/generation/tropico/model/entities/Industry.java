@@ -26,8 +26,8 @@ public class Industry extends Building {
 	}
 
 
-	public void setProduction(int production) {
-		this.production = production;
+	public void setProduction(int setterProduction) {
+		this.production = setterProduction;
 	}
 
 
@@ -36,8 +36,8 @@ public class Industry extends Building {
 	}
 
 
-	public void setJobs(int jobs) {
-		this.jobs = jobs;
+	public void setJobs(int setterJobs) {
+		this.jobs = setterJobs;
 	}
 
 
@@ -46,8 +46,8 @@ public class Industry extends Building {
 	}
 
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProduct(Product setterProduct) {
+		this.product = setterProduct;
 	}
 
 
@@ -56,8 +56,8 @@ public class Industry extends Building {
 	}
 
 
-	public void setWorkers(List<Tropicano> workers) {
-		this.workers = workers;
+	public void setWorkers(List<Tropicano> setterWorkers) {
+		this.workers = setterWorkers;
 	}
     
     

@@ -22,24 +22,24 @@ public class Residential extends Building {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setCapacity(int setterCapacity) {
+        this.capacity = setterCapacity;
     }
 
     public int getRent() {
         return rent;
     }
 
-    public void setRent(int rent) {
-        this.rent = rent;
+    public void setRent(int setterRent) {
+        this.rent = setterRent;
     }
 
 	public List<Tropicano> getResidents() {
 		return residents;
 	}
 
-	public void setResidents(List<Tropicano> residents) {
-		this.residents = residents;
+	public void setResidents(List<Tropicano> setterResidents) {
+		this.residents = setterResidents;
 	}
     
     
