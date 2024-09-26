@@ -9,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Tropicano implements Validable {
@@ -26,9 +28,16 @@ public class Tropicano implements Validable {
 	Party party;
 	@Enumerated(EnumType.STRING)
 	private Religion religion;
-	
-	
 	int satisfaction;
+	String image;
+	@ManyToOne
+	@JoinColumn(name = "residential_id")
+	private Residential residential;
+	@ManyToOne
+	@JoinColumn(name = "industry_id")
+	private Industry industry;
+	
+	
 
 	public int getId() {
 		return id;
@@ -86,6 +95,7 @@ public class Tropicano implements Validable {
 		this.party = party;
 	}
 	
+	
 	public int getSatisfaction() {
 		return satisfaction;
 	}
@@ -93,31 +103,43 @@ public class Tropicano implements Validable {
 	public void setSatisfaction(int satisfaction) {
 		this.satisfaction = satisfaction;
 	}
-
-	@Override
-	public boolean isValid() {
-		// Controllo che nome e cognome non siano nulli o vuoti
-		if (this.name == null || this.name.trim().isEmpty()) {
-			return false;
-		}
-		if (this.surname == null || this.surname.trim().isEmpty()) {
-			return false;
-		}
-
-		// Controllo che l'anno di nascita sia tra 1980 e 2015
-		if (this.birthyear < 1980 || this.birthyear > 2015) {
-			return false;
-		}
-
-		// Controllo che education, gender e party non siano null
-		if (this.education == null || this.gender == null || this.party == null) {
-			return false;
-		}
-
-		// Se tutti i controlli passano, l'oggetto è valido
-		return true;
+	
+	public String getImage() {
+		return image;
 	}
 
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
+	public Religion getReligion() {
+		return religion;
+	}
+
+	public void setReligion(Religion religion) {
+		this.religion = religion;
+	}
+
+	
+	public Residential getResidential() {
+		return residential;
+	}
+
+	public void setResidential(Residential residential) {
+		this.residential = residential;
+	}
+
+	public Industry getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(Industry industry) {
+		this.industry = industry;
+	}
+	
+	// Metodo per ottenere la lista di errori
+	
 	public List<String> getErrors() {
 		List<String> errors = new ArrayList<>();
 		if (this.name == null || this.name.trim().isEmpty()) {
@@ -137,5 +159,12 @@ public class Tropicano implements Validable {
 		}
 		return errors;
 	}
+	
+	@Override
+	public boolean isValid() {
+		return getErrors().isEmpty();
+	}
+
+	
 	
 }

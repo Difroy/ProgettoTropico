@@ -11,7 +11,7 @@ public abstract class Building {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
     private String address;
     
@@ -19,11 +19,11 @@ public abstract class Building {
 
     
     // Getters e setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long setterId) {
+    public void setId(int setterId) {
         this.id = setterId;
     }
 
