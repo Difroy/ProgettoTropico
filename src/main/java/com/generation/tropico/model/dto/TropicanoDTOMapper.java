@@ -13,7 +13,7 @@ import com.generation.tropico.model.repository.BuildingRepository;
 
 
 @Service
-public class TropicanoMapper {
+public class TropicanoDTOMapper {
 
 	
 	@Autowired
