@@ -39,10 +39,9 @@ public class LoginAPI {
 	
 	
 	@PostMapping("/logout")
-	public void logout() {
+	public User logout() {
         session.setCurrentUser(User.NOONE);
         return User.NOONE;
-	
 	}
 	
 }

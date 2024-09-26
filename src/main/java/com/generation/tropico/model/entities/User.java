@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 
 public class User {
 	
-	final static User NOONE = new User("Nobody");
+	public final static User NOONE = new User("Nobody");
 	
 	public User() {}
 	

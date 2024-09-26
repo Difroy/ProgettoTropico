@@ -33,9 +33,5 @@ public class BuildingBasicDTO {
 	public void setBuildingType(String buildingType) {
 		this.buildingType = buildingType;
 	}
-
-
-	
-	
 	
 }
