@@ -4,6 +4,7 @@ package com.generation.tropico.api;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,24 +37,16 @@ public class BuildingAPI {
 
     // GET all buildings
     @GetMapping
-    public List<BuildingDTO> getAllBuildings() {
+    public List<BuildingDTO> getAllBuildings() 
+    {
         List<Building> buildings = buildingRepository.findAll();
-        return buildings.stream()
+      
+        
+        return 	buildings
+        		.stream()
                 .map(buildingDTOMapper::toDTO)
-                .toList();
+                .collect(Collectors.toList());
         
-        // return buildings
-        //.stream()
-        //.map(building -> buildingMapper.toDTO(building))
-        //collect(Collectors.toList());
-        
-        /*
-         * List<Building> res = new ArrayList<>();
-         * for(Building b : buildings) 
-         *     res.add(buildingMapper.toDTO(b));
-         *Una landa: modo di scrivere. 
-         * 
-         * */
         //return 	buildings
         //		.stream()
         //        .map(building->buildingDTOMapper.toDTO(building))
@@ -67,18 +60,18 @@ public class BuildingAPI {
          * 
          * 
          * 
-         */   
-
+         */  
     }
-
     // GET building by ID
+    
+    
+    
     @GetMapping("/{id}")
     public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable int id) {
-        Optional<Building> buildingOpt = buildingRepository.findById(id);
-        if (buildingOpt.isPresent()) {
-            return ResponseEntity.ok(buildingDTOMapper.toDTO(buildingOpt.get()));
-        }
-        return ResponseEntity.notFound().build();
+    	Optional<Building> building = buildingRepository.findById(id);
+        return building
+        		.map(b -> ResponseEntity.ok(buildingDTOMapper.toDTO(b)))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /*
