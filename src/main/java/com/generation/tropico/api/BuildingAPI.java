@@ -38,6 +38,20 @@ public class BuildingAPI {
         return buildings.stream()
                 .map(buildingMapper::toDTO)
                 .toList();
+        
+        // return buildings
+        //.stream()
+        //.map(building -> buildingMapper.toDTO(building))
+        //collect(Collectors.toList());
+        
+        /*
+         * List<Building> res = new ArrayList<>();
+         * for(Building b : buildings) 
+         *     res.add(buildingMapper.toDTO(b));
+         *Una landa: modo di scrivere. 
+         * 
+         * */
+
     }
 
     // GET building by ID
