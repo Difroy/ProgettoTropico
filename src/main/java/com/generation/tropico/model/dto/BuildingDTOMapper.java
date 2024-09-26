@@ -11,17 +11,17 @@ import
 com.generation.tropico.model.entities.Residential;
 
 @Component
-public class BuldingDTOMapper {
+public class BuildingDTOMapper {
 
-	 private final TropicanoDTOMapper tropicanoDTOMapper;
-	    
+	
+	private final TropicanoDTOMapper tropicanoDTOMapper;
+	 
+	 
 	 public BuildingDTOMapper(TropicanoDTOMapper tropicanoDTOMapper) {
 	        this.tropicanoDTOMapper = tropicanoDTOMapper;
 	    }
 	    
 	    
-	    
-
 	    public Building toEntity(BuildingDTO dto) {
 	        if (dto.getBuildingType().equals("Residential")) {
 	            Residential residential = new Residential();
