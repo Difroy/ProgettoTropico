@@ -1,60 +1,70 @@
 package com.generation.tropico.model.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("Industry")
-public class Industry extends Building implements Validable {
+public class Industry extends Building {
 
-    private String product;
-    private int quantity;
+   
+    private int production;
     private int jobs;
+    private Product product;
 
-    // Costruttore senza argomenti
-    public Industry() {}
+    
+    @OneToMany(mappedBy = "industry")
+    private List<Tropicano> workers = new ArrayList<>();
 
-    // Costruttore con argomenti
-    public Industry(String name, double x1, double x2, double y1, double y2, int area, String product, int quantity, int jobs) {
-        super(name, x1, x2, y1, y2, area);  // Passa 'area' al costruttore della superclasse
-        this.product = product;
-        this.quantity = quantity;
-        this.jobs = jobs;
-    }
 
-    // Getter e setter
-    public String getProduct() {
-        return product;
-    }
+	public int getProduction() {
+		return production;
+	}
 
-    public void setProduct(String product) {
-        this.product = product;
-    }
 
-    public int getQuantity() {
-        return quantity;
-    }
+	public void setProduction(int production) {
+		this.production = production;
+	}
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
-    public int getJobs() {
-        return jobs;
-    }
+	public int getJobs() {
+		return jobs;
+	}
 
-    public void setJobs(int jobs) {
-        this.jobs = jobs;
-    }
 
-    @Override
-    public boolean isValid() {
-        return super.getArea() > 0 && jobs >= 0 && product != null && quantity >= 0;
-    }
+	public void setJobs(int jobs) {
+		this.jobs = jobs;
+	}
 
-    @Override
-    public String buildingType() {
-        return "Industry";
-    }
+
+	public Product getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
+	public List<Tropicano> getWorkers() {
+		return workers;
+	}
+
+
+	public void setWorkers(List<Tropicano> workers) {
+		this.workers = workers;
+	}
+    
+    
+    
+    
+    
+    
+    
 }
 
