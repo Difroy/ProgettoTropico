@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.tropico.dto.IsleDTO;
-import com.generation.tropico.dto.IsleMapper;
+import com.generation.tropico.model.dto.IsleDTO;
+import com.generation.tropico.model.dto.IsleMapper;
 import com.generation.tropico.model.entities.Isle;
 import com.generation.tropico.model.repository.IsleRepository;
 

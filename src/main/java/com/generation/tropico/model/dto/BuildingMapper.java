@@ -1,4 +1,4 @@
-package com.generation.tropico.dto;
+package com.generation.tropico.model.dto;
 
 
 import java.util.Optional;

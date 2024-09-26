@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.tropico.dto.BuildingDTO;
-import com.generation.tropico.dto.BuildingMapper;
+import com.generation.tropico.model.dto.BuildingDTO;
+import com.generation.tropico.model.dto.BuildingMapper;
 import com.generation.tropico.model.entities.Building;
 import com.generation.tropico.model.repository.BuildingRepository;
 
